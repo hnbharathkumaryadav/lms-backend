@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Custom Animations */
+  @keyframes blob {
+
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+      transform: translate(20px, -20px) scale(1.1);
+    }
+
+    50% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+
+    75% {
+      transform: translate(20px, 20px) scale(1.05);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+
+  /* 3D Animations */
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px) rotate3d(1, 1, 1, 5deg);
+    }
+
+    50% {
+      transform: translateY(-20px) rotate3d(1, 1, 1, -5deg);
+    }
+  }
+
+  @keyframes float-slow {
+
+    0%,
+    100% {
+      transform: translateY(0px) rotate3d(1, -1, 0, 5deg);
+    }
+
+    50% {
+      transform: translateY(-30px) rotate3d(1, -1, 0, -5deg);
+    }
+  }
+
+  @keyframes float-delayed {
+
+    0%,
+    100% {
+      transform: translateY(0px) rotate3d(0, 1, 0, 5deg);
+    }
+
+    50% {
+      transform: translateY(-25px) rotate3d(0, 1, 0, -5deg);
+    }
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float-delayed 7s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  /* Energetic Jump/Float Animations */
+  @keyframes jump-float {
+
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+      transform: translateY(-30px) rotate(10deg) scale(1.1);
+    }
+  }
+
+  @keyframes bounce-float {
+
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+    }
+
+    40% {
+      transform: translateY(-40px) scale(1.1);
+    }
+
+    60% {
+      transform: translateY(-20px) scale(1.05);
+    }
+  }
+
+  .animate-jump-float {
+    animation: jump-float 4s ease-in-out infinite;
+  }
+
+  .animate-bounce-float {
+    animation: bounce-float 5s ease-in-out infinite;
+  }
+
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .delay-700 {
+    animation-delay: 700ms;
+  }
+
+  .delay-1000 {
+    animation-delay: 1000ms;
+  }
+
+  /* Minimal Fading & Moving Animations */
+  @keyframes fade-jump {
+
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 0.7;
+    }
+
+    50% {
+      transform: translateY(-15px) scale(1.05);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-float {
+
+    0%,
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 0.6;
+    }
+
+    33% {
+      transform: translate(10px, -15px) rotate(5deg);
+      opacity: 0.9;
+    }
+
+    66% {
+      transform: translate(-10px, 15px) rotate(-5deg);
+      opacity: 0.9;
+    }
+  }
+
+  .animate-fade-jump {
+    animation: fade-jump 4s ease-in-out infinite;
+  }
+
+  .animate-fade-float {
+    animation: fade-float 6s ease-in-out infinite;
+  }
+
+
+}
+
+@media print {
+
+  /* Hide typical layout elements */
+  nav,
+  aside,
+  footer,
+  .sidebar-container,
+  .navbar-container {
+    display: none !important;
+  }
+
+  /* Reset layout for print */
+  body,
+  #root,
+  main,
+  .main-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: visible !important;
+    background: white !important;
+  }
+
+  #root>div {
+    display: block !important;
+  }
+
+  /* Make the certificate container full width */
+  .certificate-container {
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  /* Hide print buttons */
+  button {
+    display: none !important;
+  }
+
+  /* Ensure background colors/images print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
